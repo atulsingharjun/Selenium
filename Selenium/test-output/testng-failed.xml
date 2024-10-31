@@ -5,7 +5,7 @@
     <classes>
       <class name="Selenium.Selenium.InfosysPdf1">
         <methods>
-          <include name="example1"/>
+          <include name="findelements"/>
           <include name="down"/>
         </methods>
       </class> <!-- Selenium.Selenium.InfosysPdf1 -->
