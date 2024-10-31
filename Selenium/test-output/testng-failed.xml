@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selenium.Selenium.Login">
+      <class name="Selenium.Selenium.InfosysPdf1">
         <methods>
-          <include name="verifybyInvalidcredentials"/>
+          <include name="example1"/>
+          <include name="down"/>
         </methods>
-      </class> <!-- Selenium.Selenium.Login -->
+      </class> <!-- Selenium.Selenium.InfosysPdf1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
