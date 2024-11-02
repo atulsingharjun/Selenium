@@ -2,18 +2,28 @@ package Selenium.Selenium;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class InfosysPdf1 {
     public WebDriver driver;
+    @BeforeTest
+    public void configuration() {
+    	driver = new ChromeDriver();
+       
+    	
+    }
 
     @Test(enabled=false)
     public void findelement() throws InterruptedException {
@@ -31,7 +41,7 @@ public class InfosysPdf1 {
         Assert.assertEquals(actual, expected, "Text did not match!");  //System.out.println(actual);
        
     }
-    @Test
+    @Test(enabled=false)
     public void findelements() {
     	driver = new ChromeDriver();
         driver.get("https://edunexttechnologies.com/school-erp.php");
@@ -45,10 +55,40 @@ public class InfosysPdf1 {
         	System.out.println(list.getText());
         	
         }
-
-    	
     	
     }
+    @Test(enabled=false)
+    public void handlemultiplewindows() throws InterruptedException {
+    	//window handle = current tab ka=e data ko navigate karega
+    	//window handles = jitne khule hinge sbko krega 
+    	driver.get("https://www.hyrtutorials.com/p/window-handles-practice.html");
+    	driver.manage().window().maximize();
+    	driver.findElement(By.id("newWindowBtn")).click();  
+    	String parent = driver.getWindowHandle();
+    	System.out.println("parent window is "+parent);
+    	
+    	 Set<String> handles    =driver.getWindowHandles();
+    	 for(String handle : handles) {
+    		 System.out.println("all window is "+handle);
+    		 if(!handle.equals(parent)) {
+    			 driver.switchTo().window(handle);
+    			 driver.findElement(By.id("firstName")).sendKeys("arjun");
+    			 Thread.sleep(5000);
+    			 driver.close();   
+    			 
+    		 }
+    	 }
+    	
+    	 
+    }
+    @Test
+    public void waits() {
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	driver.get("https://edunexttechnologies.com/school-erp.php");
+    	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.className("facebook-btn")));
+		 element.click();
+	 }
+    
 
    @AfterTest
     public void down() {

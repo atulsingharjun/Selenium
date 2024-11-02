@@ -5,8 +5,9 @@
     <classes>
       <class name="Selenium.Selenium.InfosysPdf1">
         <methods>
-          <include name="findelements"/>
+          <include name="waits"/>
           <include name="down"/>
+          <include name="configuration"/>
         </methods>
       </class> <!-- Selenium.Selenium.InfosysPdf1 -->
     </classes>
