@@ -81,13 +81,22 @@ public class InfosysPdf1 {
     	
     	 
     }
-    @Test
+    @Test(enabled=false)
     public void waits() {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     	driver.get("https://edunexttechnologies.com/school-erp.php");
     	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.className("facebook-btn")));
 		 element.click();
 	 }
+    @Test(invocationCount = 4)
+    public void singlemetodmultipletime() {
+    	driver.get("https://edunexttechnologies.com/school-erp.php");
+    	driver.manage().window().maximize();
+    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
+    	
+    	driver.findElement(By.xpath("//span[@data-hover='School ERP']")).click();   
+    	//driver.close();
+    }
     
 
    @AfterTest

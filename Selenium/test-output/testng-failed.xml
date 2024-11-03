@@ -5,7 +5,7 @@
     <classes>
       <class name="Selenium.Selenium.InfosysPdf1">
         <methods>
-          <include name="waits"/>
+          <include name="singlemetodmultipletime"/>
           <include name="down"/>
           <include name="configuration"/>
         </methods>
